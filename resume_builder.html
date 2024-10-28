@@ -34,7 +34,7 @@
                     <path fill="transparent" stroke="transparent" d="M473.5 0h553v534h-553z" />
                 </g>
             </svg>
-            <a class="navbar-brand text-light fw-bold fs-3" href="#">ResuME</a>
+            <a class="navbar-brand text-light fw-bold fs-3" href="index.html">ResuME</a>
         </div>
     </nav>
 
@@ -44,17 +44,18 @@
         <form id="resumeForm" class="needs-validation mt-4" novalidate>
             <!-- Personal Information -->
             <h3 class="mb-3">Personal Information</h3>
+            <p><span class="asterisk">* Required</span></p>
             <div class="row g-4">
                 <div class="col-md-6">
-                    <label for="name" class="form-label">Full Name</label>
+                    <label for="name" class="form-label">Full Name<span class="asterisk">*</span></label>
                     <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="email" class="form-label">Email</label>
+                    <label for="email" class="form-label">Email<span class="asterisk">*</span></label>
                     <input type="email" class="form-control" id="email" name="email" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                    <label for="phoneNumber" class="form-label">Phone Number<span class="asterisk">*</span></label>
                     <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required>
                 </div>
                 <div class="col-md-6">
@@ -75,15 +76,15 @@
             <h3 class="my-4">Education</h3>
             <div class="row g-4">
                 <div class="col-md-6">
-                    <label for="school" class="form-label">School Name</label>
+                    <label for="school" class="form-label">School Name<span class="asterisk">*</span></label>
                     <input type="text" class="form-control" id="school" name="school" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="schoolLocation" class="form-label">School Location (City, State)</label>
+                    <label for="schoolLocation" class="form-label">School Location (City, State)<span class="asterisk">*</span></label>
                     <input type="text" class="form-control" id="schoolLocation" name="schoolLocation" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="degree" class="form-label">Degree</label>
+                    <label for="degree" class="form-label">Degree<span class="asterisk">*</span></label>
                     <select id="degree" class="form-select" required>
                         <option value="">Select a degree</option>
                         <option value="Bachelors of Science">Bachelors of Science</option>
@@ -93,7 +94,7 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label for="major" class="form-label">Major</label>
+                    <label for="major" class="form-label">Major<span class="asterisk">*</span></label>
                     <input type="text" class="form-control" id="major" name="major" required>
                 </div>
                 <div class="col-md-6">
@@ -114,11 +115,11 @@
             <h3 class="my-4">Experience</h3>
             <div class="row g-4">
                 <div class="col-md-6">
-                    <label for="company" class="form-label">Company Name</label>
+                    <label for="company" class="form-label">Company Name<span class="asterisk">*</span></label>
                     <input type="text" class="form-control" id="company" name="company" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="position" class="form-label">Position</label>
+                    <label for="position" class="form-label">Position<span class="asterisk">*</span></label>
                     <input type="text" class="form-control" id="position" name="position" required>
                 </div>
                 <div class="col-md-6">
