@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form validation function
     const validateForm = () => {
         let isValid = true;
+        let firstInvalidField = null;  // will store the first invalid input
 
         // Loop through all form elements
         Array.from(resumeForm.elements).forEach((input) => {
@@ -45,20 +46,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (input.hasAttribute('Required') && !input.value.trim()) {
                     showError(input, `Required`);
                     isValid = false;
+                    if (!firstInvalidField) firstInvalidField = input; 
                 }
 
                 // Validate specific field types
                 if (input.type === 'email' && input.value && !isValidEmail(input.value)) {
                     showError(input, 'Please enter a valid email address.');
                     isValid = false;
+                    if (!firstInvalidField) firstInvalidField = input; 
                 }
 
                 if ((input.type === 'url' || input.name.includes('URL')) && input.value && !isValidURL(input.value)) {
                     showError(input, 'Please Enter a Valid URL.');
                     isValid = false;
+                    if (!firstInvalidField) firstInvalidField = input; 
                 }
             }
         });
+
+        // Scroll to the first invalid field if any
+        if (firstInvalidField) {
+            firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstInvalidField.focus();
+        }
 
         return isValid;
     };
