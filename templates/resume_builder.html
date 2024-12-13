@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+
+    <style>
+        /* Ensure consistent height and alignment between select and input fields */
+        .form-control, .form-select {
+            height: calc(2.75rem + 2px); /* Match input field height */
+            padding: 0.375rem 0.75rem; /* Consistent padding */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary py-4 px-2 mb-5">
+        <div class="d-flex align-items-center">
+            <svg class="min-size me-3" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" data-id="lg_D0CTKKx2DqJJ7kiCMc"
+                data-version="1" viewBox="473 -0.5 554 535" width="100" height="100">
+                <g data-padding="20">
+                    <g fill="#fff">
+                        <path
+                            d="M759.611 506.196a236.363 238.257 0 0 1-163.348-65.778l-.241-.243h36.988v-18.188h-65.436v66.021h18.043v-32.737a254.406 256.444 0 0 0 174.054 69.053 255.609 257.657 0 0 0 246.227-324.83 38.792 39.103 0 1 0-16.058 10.186 237.566 239.47 0 0 1-230.169 296.456m218.32-312.704a20.75 20.915 0 1 1 0-41.83 20.75 20.915 0 0 1 0 41.83M483.373 326.564a38.792 39.103 0 1 0 40.056-39.043q-.903-10.185-.963-20.491c.168-131.993 106.261-238.966 237.205-239.166 53.468 0 105.07 18.188 146.75 51.35h-34.162V97.4h65.496V31.44h-18.043v35.163A255.007 257.05 0 0 0 759.73 9.676 255.609 257.657 0 0 0 505.626 291.28a39.093 39.406 0 0 0-22.253 35.284m38.792-20.915a20.75 20.915 0 0 1-.06 41.83 20.75 20.915 0 0 1 0-41.83" />
+                        <path
+                            d="M840.023 343.6a37.469 37.77 0 0 0 37.469-37.71v-78.57a37.469 37.77 0 0 0-37.47-37.708H670.6a37.469 37.77 0 0 0-37.409 37.709v78.57A37.469 37.77 0 0 0 670.6 343.6ZM658.09 305.83v-78.51c0-6.91 5.593-12.55 12.45-12.55h169.543c6.856 0 12.45 5.64 12.45 12.55v78.57c0 6.911-5.594 12.55-12.511 12.55H670.599a12.45 12.55 0 0 1-12.45-12.55" />
+                        <path
+                            d="M698.987 236.9h24.96v59.351h-24.96Zm91.538 0h24.96v59.351h-24.96Zm-193.66 1.212h24.959V295.1h-24.96Zm297.107 0h24.959V295.1h-24.96Z" />
+                    </g>
+                    <path fill="transparent" stroke="transparent" d="M473.5 0h553v534h-553z" />
+                </g>
+            </svg>
+            <a class="navbar-brand text-light fw-bold fs-3" href="/">ResuME</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Fill in Your Information</h2>
+
+        <form id="resumeForm" class="needs-validation mt-4" novalidate>
+            <!-- Personal Information -->
+            <h3 class="mb-3">Personal Information</h3>
+            <p><span class="asterisk">* Required</span></p>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Full Name<span class="asterisk">*</span></label>
+                    <input type="text" class="form-control" id="name" name="personal_info[name]" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email<span class="asterisk">*</span></label>
+                    <input type="email" class="form-control" id="email" name="personal_info[email]" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="phoneNumber" class="form-label">Phone Number<span class="asterisk">*</span></label>
+                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="linkedin" class="form-label">LinkedIn URL</label>
+                    <input type="url" class="form-control" id="linkedin" name="personal_info[linkedin]">
+                </div>
+                <div class="col-md-6">
+                    <label for="github" class="form-label">GitHub URL</label>
+                    <input type="url" class="form-control" id="github" name="personal_info[github]">
+                </div>
+                <div class="col-md-6">
+                    <label for="location" class="form-label">Location (City, State)</label>
+                    <input type="text" class="form-control" id="location" name="personal_info[location]">
+                </div>
+            </div>
+
+            <!-- Education -->
+            <h3 class="my-4">Education</h3>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <label for="school" class="form-label">School Name<span class="asterisk">*</span></label>
+                    <input type="text" class="form-control" id="school" name="education[school]" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="schoolLocation" class="form-label">School Location (City, State)<span class="asterisk">*</span></label>
+                    <input type="text" class="form-control" id="schoolLocation" name="education[school_location]" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="degree" class="form-label">Degree<span class="asterisk">*</span></label>
+                    <select id="degree" class="form-select" name="education[degree]" required>
+                        <option value="">Select a degree</option>
+                        <option value="Bachelors of Science">Bachelors of Science</option>
+                        <option value="Bachelors of Arts">Bachelors of Arts</option>
+                        <option value="Masters">Masters</option>
+                        <option value="PhD">PhD</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="major" class="form-label">Major<span class="asterisk">*</span></label>
+                    <input type="text" class="form-control" id="major" name="education[major]" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="graduationDate" class="form-label">Graduation Date</label>
+                    <input type="date" class="form-control" id="graduationDate" name="education[graduation_date]">
+                </div>
+                <div class="col-md-6">
+                    <label for="gpa" class="form-label">GPA</label>
+                    <input type="text" class="form-control" id="gpa" name="education[gpa]">
+                </div>
+                <div class="col-12">
+                    <label for="courses" class="form-label">Relevant Courses</label>
+                    <textarea class="form-control" id="courses" name="education[relevant_courses]" rows="2"></textarea>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <h3 class="my-4">Experience</h3>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <label for="company" class="form-label">Company Name<span class="asterisk">*</span></label>
+                    <input type="text" class="form-control" id="company" name="internship_info[internship_company]" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="position" class="form-label">Position<span class="asterisk">*</span></label>
+                    <input type="text" class="form-control" id="position" name="internship_info[internship_position]" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="expLocation" class="form-label">Location (City, State)</label>
+                    <input type="text" class="form-control" id="expLocation" name="internship_info[internship_location]">
+                </div>
+                <div class="col-md-6">
+                    <label for="expDates" class="form-label">Dates of Employment</label>
+                    <input type="text" class="form-control" id="expDates" name="internship_info[internship_date]">
+                </div>
+                <div class="col-12">
+                    <label for="expDescription" class="form-label">Brief Description</label>
+                    <textarea class="form-control" id="expDescription" name="internship_info[internship_description]" rows="3"></textarea>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <h3 class="my-4">Projects</h3>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <label for="projectName" class="form-label">Project Name</label>
+                    <input type="text" class="form-control" id="projectName" name="proj_info[proj_name]">
+                </div>
+                <div class="col-md-6">
+                    <label for="projectDate" class="form-label">Project Date</label>
+                    <input type="date" class="form-control" id="projectDate" name="proj_info[proj_date]">
+                </div>
+                <div class="col-12">
+                    <label for="projectURL" class="form-label">Project URL</label>
+                    <input type="url" class="form-control" id="projectURL" name="proj_info[proj_url]">
+                </div>
+                <div class="col-12">
+                    <label for="projectDescription" class="form-label">Brief Description</label>
+                    <textarea class="form-control" id="projectDescription" name="proj_info[proj_description]" rows="2"></textarea>
+                </div>
+            </div>
+
+            <!-- Technical Skills -->
+            <h3 class="my-4">Technical Skills</h3>
+            <div class="row">
+                <div class="col-12">
+                    <label for="techSkills" class="form-label">Programming Languages</label>
+                    <textarea class="form-control" id="techSkills" name="skills_info[prog_languages]" rows="2"></textarea>
+                </div>
+                <div class="col-12">
+                    <label for="applications" class="form-label">Applications</label>
+                    <textarea class="form-control" id="applications" name="skills_info[applications]" rows="2"></textarea>
+                </div>
+                <div class="col-12">
+                    <label for="os" class="form-label">Operating Systems</label>
+                    <textarea class="form-control" id="os" name="skills_info[os]" rows="2"></textarea>
+                </div>
+                <div class="col-12">
+                    <label for="designSoftware" class="form-label">Design Software</label>
+                    <textarea class="form-control" id="designSoftware" name="skills_info[design_software]" rows="2"></textarea>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-success btn-lg">Generate Resume</button>
+            </div>
+        </form>
+
+        <div id="resumePreview" class="preview-container mt-5 p-3" style="display:none;">
+            <h4>Resume Preview</h4>
+            <pre id="previewContent" class="border p-3"></pre>
+            <button id="downloadBtn" class="btn btn-primary mt-3" style="display:none;">Download</button>
+        </div>
+    </div>
+</body>
+</html>
