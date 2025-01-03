@@ -4,7 +4,7 @@ import openai
 
 def enhance_internship_description(description):
     # Set your OpenAI API key here
-    openai.api_key = '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'
+    openai.api_key = 'api-key-here'
 
     try:
         response = openai.ChatCompletion.create(
@@ -23,7 +23,7 @@ def enhance_internship_description(description):
     
 def enhance_project_description(description2):
     # Set your OpenAI API key here
-    openai.api_key = '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'
+    openai.api_key = 'api-key-here'
 
     try:
         response = openai.ChatCompletion.create(
